@@ -5,6 +5,7 @@ const dotenv = require("dotenv").config();
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
+const listRoute = require("./routes/lists");
 const dataOperationsRoute = require("./routes/dataTracking");
 const cors= require("cors");
 const cookieParser= require("cookie-parser");
@@ -35,6 +36,7 @@ const PORT= process.env.PORT;
   app.use("/api/auth", authRoute);
   app.use("/api/users", userRoute);
   app.use("/api/movies", movieRoute); 
+  app.use("/api/lists", listRoute); 
   app.use("/api/dataOperations", dataOperationsRoute); 
 
   app.listen(PORT, () => {
