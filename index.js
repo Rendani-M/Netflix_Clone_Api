@@ -8,6 +8,7 @@ const movieRoute = require("./routes/movies");
 const dataOperationsRoute = require("./routes/dataTracking");
 const cors= require("cors");
 const cookieParser= require("cookie-parser");
+const PORT= process.env.PORT;
 
   mongoose 
     .connect(process.env.MONGO_URL, {
@@ -16,7 +17,7 @@ const cookieParser= require("cookie-parser");
     })
     .then(() => console.log("DB Connection Successfull"))
     .catch((err) => {
-      console.error(err);
+      console.error(err); 
   }); 
 
   app.use((req, res, next) => {
@@ -36,6 +37,6 @@ const cookieParser= require("cookie-parser");
   app.use("/api/movies", movieRoute); 
   app.use("/api/dataOperations", dataOperationsRoute); 
 
-  app.listen(8800, () => {
-  console.log("Backend server is running!");
+  app.listen(PORT, () => {
+  console.log("Backend server is running on port: "+ PORT +"!");
 });
