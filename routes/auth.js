@@ -14,6 +14,7 @@ router.post("/register", async (req, res) => {
         req.body.password,
         process.env.SECRET_KEY
       ).toString(),
+      isAdmin: req.body.isAdmin,
     });
 
     const user = await newUser.save();
