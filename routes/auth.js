@@ -5,9 +5,8 @@ const jwt = require("jsonwebtoken");
 
 //REGISTER
 router.post("/register", async (req, res) => {
-  
   try {
-    const newUser =  new User({
+    const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: CryptoJS.AES.encrypt(
@@ -19,11 +18,14 @@ router.post("/register", async (req, res) => {
 
     const user = await newUser.save();
     res.status(200).json(user);
-  } 
-  catch (err) {
-    console.log(err)
-    console.log(req.body)
-    res.status(500).json("something went wrong");
+  } catch (err) {
+    if (err.code === 11000) {
+      res.status(400).json("Username or email already exists");
+    } else if (err._message && err._message.includes("User validation failed")) {
+      res.status(400).json("Missing required fields");
+    } else {
+      res.status(500).json("Something went wrong");
+    }
   }
 });
 
