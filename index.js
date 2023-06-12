@@ -32,7 +32,7 @@ const PORT= process.env.PORT;
         "http://localhost:3000",
         "http://localhost:4000",
         "https://rendi-portfolio-neflixclone.netlify.app",
-        "https://netflix-a97e4.web.app"
+        "https://rendi-portfolio-neflixclone-admin.netlify.app"
       ],
     })
   );
