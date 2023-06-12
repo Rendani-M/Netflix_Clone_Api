@@ -31,7 +31,7 @@ const PORT= process.env.PORT;
       origin: [
         "http://localhost:3000",
         "http://localhost:4000",
-        "https://singular-trifle-25865a.netlify.app",
+        "https://rendi-portfolio-neflixclone.netlify.app",
         "https://netflix-a97e4.web.app"
       ],
     })
