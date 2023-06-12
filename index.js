@@ -27,8 +27,13 @@ const PORT= process.env.PORT;
   });
   app.use(express.json());
   app.use(
-    cors({ //Only allow localhost:3000 to access this api
-      origin: ["http://localhost:3000", "http://localhost:4000"],
+  cors({
+      origin: [
+        "http://localhost:3000",
+        "http://localhost:4000",
+        "https://singular-trifle-25865a.netlify.app",
+        "https://netflix-a97e4.web.app"
+      ],
     })
   );
   app.use(cookieParser()); 
